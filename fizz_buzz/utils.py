@@ -30,7 +30,7 @@ class Util:
     
     def gradient_step(self, x:List[float], gradient:List[float], step_size:float) -> List[float]:
         if len(x) == len(gradient):
-           step = [step_size * x_i for x_i in x]
+           step = [step_size * x_i for x_i in gradient]
            result =  [x_i + s_i for x_i, s_i in zip(x, step)]
         else:
             raise(NameError(f"Ambos vectores deben tener la misma longitud: len(x) = {len(x)} y len(gradient) = {len(gradient)}"))
