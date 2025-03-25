@@ -23,7 +23,7 @@ class FizzBuzzNN():
 
     def square_error_gradients(self, input_vec:List[float], target_vec:List[float]) -> List[List[List[float]]]:
         bias = [1]
-        hidden_outputs, outputs = self.feed_forward(self.neural_network, input_vec)
+        hidden_outputs, outputs = self.feed_forward(input_vec)
         output_deltas = [output * (1 - output) * (output - target)
                          for output, target in zip(outputs, target_vec)]
         output_gradients = [[output_deltas[i] * hidden_output
@@ -41,7 +41,7 @@ class FizzBuzzNN():
             for epoch in t:
                 epoch_loss = 0.0
                 for x_i, y_i in zip(x, y):
-                    predicted = self.feed_forward(x)[-1]
+                    predicted = self.feed_forward(x_i)[-1]
                     epoch_loss += Util().squared_dist(predicted, y_i)
                     gradients = self.square_error_gradients(x_i, y_i)
                     self.neural_network = [[Util().gradient_step(neuron, gradient, -learning_rate)
