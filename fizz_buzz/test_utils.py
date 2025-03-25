@@ -1,4 +1,4 @@
-from fizz_buzz.utils import Util
+from fizz_buzz import Util
 
 # tests for sigmoid_func 
 assert round(Util().sigmoid_func(1), 2) == 0.73, False
