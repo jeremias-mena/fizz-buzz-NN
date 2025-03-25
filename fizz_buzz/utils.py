@@ -43,7 +43,7 @@ class Util:
             x = x // 2
         return encoder
 
-    def f_buzz_enconder(self, x: int) -> List[float]:
+    def f_buzz_encoder(self, x: int) -> List[float]:
         if x % 15 == 0:
             return [0, 0, 0, 1]
         elif x % 5 == 0:
