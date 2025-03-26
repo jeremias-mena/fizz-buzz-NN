@@ -1,5 +1,12 @@
-from pathlib import Path
+import os
 
 class Config:
-    dir_train_model = Path(__file__).resolve().parent/'model'
-    train_model_path = dir_train_model/'fizz_buzz_NN.pkl'
+    def __init__(self):
+        pass
+
+    def create_dir(self, dir_path: str) -> None:
+        if not os.path.exists(dir_path):
+            os.mkdir(dir_path)
+        else:
+            print(f"El directorio {dir_path} ya existe")
+        return
